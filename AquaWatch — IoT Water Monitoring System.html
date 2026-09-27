@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://127.0.0.1:5500/#hardware -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AquaWatch — IoT Water Monitoring System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./AquaWatch — IoT Water Monitoring System_files/css2" rel="stylesheet">
+<link rel="stylesheet" href="./AquaWatch — IoT Water Monitoring System_files/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 11 5 16a7 7 0 0 0 14 0c0-5-7-14-7-14Z" fill="#3fd8c7"></path></svg>
+      AquaWatch
+    </div>
+    <nav class="links">
+      <a href="http://127.0.0.1:5500/#problem">Problem</a>
+      <a href="http://127.0.0.1:5500/#how">How it works</a>
+      <a href="http://127.0.0.1:5500/#capabilities">Capabilities</a>
+      <a href="http://127.0.0.1:5500/#hardware">Hardware</a>
+      <a href="http://127.0.0.1:5500/#pins">Pinout</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow-line"><span class="dot"></span>SENSOR NETWORK — LIVE</div>
+      <h1 class="headline">Watching every drop, so <em>none</em> goes to waste.</h1>
+      <p class="sub">An IoT system that reads water level, tracks water quality, and catches leaks the moment they start — turning a pipe network into a system you can actually see and manage.</p>
+      <div class="cta-row">
+        <a href="http://127.0.0.1:5500/#how" class="btn btn-primary">See how it works</a>
+        <a href="http://127.0.0.1:5500/#hardware" class="btn btn-ghost">View the prototype</a>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title"><span>TANK 01 — MAIN SUPPLY</span><span>SYNCED</span></div>
+      <div class="gauges">
+        <div class="gauge">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="8"></circle><circle id="gauge-level" cx="50" cy="50" r="42" fill="none" stroke="#3fd8c7" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="63" stroke-linecap="round" transform="rotate(-90 50 50)" style="stroke-dashoffset: 52.8;"></circle></svg>
+          <div class="gauge-val" id="val-level">80%</div>
+          <div class="gauge-label">Water level</div>
+        </div>
+        <div class="gauge">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="8"></circle><circle cx="50" cy="50" r="42" fill="none" stroke="#3fd8c7" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="32" stroke-linecap="round" transform="rotate(-90 50 50)"></circle></svg>
+          <div class="gauge-val" id="val-quality">7.1 pH</div>
+          <div class="gauge-label">Quality index</div>
+        </div>
+        <div class="gauge">
+          <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="8"></circle><circle id="gauge-leak" cx="50" cy="50" r="42" fill="none" stroke="#e8a33d" stroke-width="8" stroke-dasharray="264" stroke-dashoffset="235" stroke-linecap="round" transform="rotate(-90 50 50)" style="stroke-dashoffset: 145.1; stroke: rgb(232, 163, 61);"></circle></svg>
+          <div class="gauge-val" id="val-leak">Medium</div>
+          <div class="gauge-label">Leak risk</div>
+        </div>
+      </div>
+      <div class="readout-row"><span>Flow rate</span><span class="status-ok" id="val-flow">6.0 L/min</span></div>
+      <div class="readout-row"><span>Turbidity</span><span class="status-ok" id="val-turbidity">Normal</span></div>
+      <div class="readout-row"><span>Line pressure — Zone C</span><span class="status-warn">Drop detected ⚠</span></div>
+      <div class="readout-row"><span>Last sync</span><span style="color:var(--text-dim)" id="val-sync">6s ago</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">THE PROBLEM</div>
+      <h2>Water systems run blind.</h2>
+      <p>Most tanks and pipelines are only checked when something has already gone wrong.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-cell"><div class="num">01</div><h3>Wastage goes unnoticed</h3><p>Small leaks and overflows run for days before anyone spots them.</p></div>
+      <div class="problem-cell"><div class="num">02</div><h3>Quality is checked too late</h3><p>Contamination is usually discovered after it reaches a household or tank.</p></div>
+      <div class="problem-cell"><div class="num">03</div><h3>Management is manual</h3><p>Levels are read by eye and pumps switched by hand — no data trail, no early warning.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">SYSTEM PIPELINE</div>
+      <h2>From sensor to decision, in four stages.</h2>
+      <p>Raw readings become an action — an alert, a pump switch, a logged trend — without anyone checking a tank by hand.</p>
+    </div>
+    <div class="pipeline">
+      <div class="stage"><div class="stage-num">01</div><div><h3>Sense</h3><p>Ultrasonic level sensors, pH and turbidity probes, and flow meters take continuous readings.</p><div class="tags"><span class="tag">Ultrasonic level sensor</span><span class="tag">pH / TDS probe</span><span class="tag">Turbidity sensor</span><span class="tag">Flow meter</span></div></div></div>
+      <div class="stage"><div class="stage-num">02</div><div><h3>Process</h3><p>A microcontroller at each node reads the sensors and flags anything abnormal before it's sent onward.</p><div class="tags"><span class="tag">ESP32 / Arduino UNO</span><span class="tag">Edge threshold checks</span></div></div></div>
+      <div class="stage"><div class="stage-num">03</div><div><h3>Transmit &amp; store</h3><p>Readings travel to a cloud database, building a continuous, timestamped history for every point.</p><div class="tags"><span class="tag">MQTT / HTTP</span><span class="tag">Time-series log</span></div></div></div>
+      <div class="stage"><div class="stage-num">04</div><div><h3>Act</h3><p>The dashboard visualises live status, sends alerts, and can trigger a pump or valve automatically.</p><div class="tags"><span class="tag">Live dashboard</span><span class="tag">SMS / app alert</span><span class="tag">Auto pump control</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="capabilities">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">CORE CAPABILITIES</div><h2>Three things the system watches at once.</h2></div>
+    <div class="cap-grid">
+      <div class="cap"><svg viewBox="0 0 44 44" fill="none"><rect x="10" y="6" width="24" height="34" rx="2" stroke="#3fd8c7" stroke-width="2"></rect><rect x="13" y="22" width="18" height="15" fill="#3fd8c7" opacity="0.35"></rect><line x1="10" y1="22" x2="34" y2="22" stroke="#3fd8c7" stroke-width="1.5"></line></svg><h3>Water level monitoring</h3><p>Tracks tank levels continuously, so supply is never a guess.</p><ul><li>Real-time fill percentage</li><li>Auto motor cut-off on overflow</li><li>Low-level early warning</li></ul></div>
+      <div class="cap"><svg viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="15" stroke="#3fd8c7" stroke-width="2"></circle><path d="M16 22c1.5-4 3-4 4.5 0s3 4 4.5 0" stroke="#3fd8c7" stroke-width="2" fill="none"></path></svg><h3>Water quality monitoring</h3><p>Checks pH, turbidity and dissolved solids around the clock.</p><ul><li>pH and TDS tracking</li><li>Turbidity / contamination flag</li><li>Instant unsafe-reading alert</li></ul></div>
+      <div class="cap"><svg viewBox="0 0 44 44" fill="none"><path d="M22 6c5 8 10 14 10 20a10 10 0 0 1-20 0c0-6 5-12 10-20Z" stroke="#e8a33d" stroke-width="2" fill="none"></path><path d="M22 26l3 4" stroke="#e8a33d" stroke-width="2"></path></svg><h3>Leakage detection</h3><p>Compares expected vs. actual flow to catch leaks before they're visible.</p><ul><li>Flow-mismatch detection</li><li>Pressure-drop alerts by zone</li><li>Notification the moment it starts</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">WHY IT MATTERS</div><h2>Less wasted water, safer supply, fewer surprises.</h2></div>
+    <div class="impact-strip">
+      <div class="impact-item"><div class="figure">24/7</div><div class="label">Continuous monitoring, no manual checks</div></div>
+      <div class="impact-item"><div class="figure">&lt;1 min</div><div class="label">Time to alert once a leak starts</div></div>
+      <div class="impact-item"><div class="figure">100%</div><div class="label">Of readings logged for trend analysis</div></div>
+      <div class="impact-item"><div class="figure">0</div><div class="label">Overflow events once auto cut-off is active</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="hardware">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">PROTOTYPE — CIRCUIT REFERENCE</div>
+      <h2>HC-SR04 + Arduino UNO + 16×2 LCD</h2>
+      <p>The working prototype behind AquaWatch: an ultrasonic sensor reads tank level, a simulated flow sensor watches for leaks, and an I2C LCD plus LED/buzzer panel report status in real time.</p>
+    </div>
+    <ul class="comp-list">
+      <li><span class="idx">01</span> Arduino UNO</li>
+      <li><span class="idx">02</span> HC-SR04 ultrasonic sensor — water level</li>
+      <li><span class="idx">03</span> YF-S201 water flow sensor — leakage (simulated via potentiometer 2)</li>
+      <li><span class="idx">04</span> 16×2 LCD display (I2C)</li>
+      <li><span class="idx">05</span> 2 × potentiometers — water quality &amp; flow</li>
+      <li><span class="idx">06</span> Buzzer — audible alert</li>
+      <li><span class="idx">07</span> 3 × LEDs — green / yellow / red status</li>
+      <li><span class="idx">08</span> Jumper wires</li>
+      <li><span class="idx">09</span> Breadboard (optional)</li>
+      <li><span class="idx">10</span> Resistors — 220Ω × 3</li>
+      <li><span class="idx">11</span> USB cable / power supply</li>
+    </ul>
+
+    <div class="flow" style="margin-top:36px;">
+      <div class="flow-node"><div class="t">HC-SR04</div><div class="s">TRIG D9 · ECHO D10</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="t">Arduino UNO</div><div class="s">Reads &amp; evaluates</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="t">LCD (I2C)</div><div class="s">SDA A4 · SCL A5</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="t">LED + Buzzer</div><div class="s">D5 / D6 / D7 · D8</div></div>
+    </div>
+    <div class="lcd-demo"><div id="lcd-line1">Water Level: 80%</div><div id="lcd-line2">Quality: Good</div></div>
+  </div>
+</section>
+
+<section id="pins">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">WIRING REFERENCE</div><h2>Pin connections</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Component</th><th>Arduino UNO pin</th></tr></thead>
+        <tbody>
+          <tr><td>HC-SR04 TRIG</td><td class="pin">D9</td></tr>
+          <tr><td>HC-SR04 ECHO</td><td class="pin">D10</td></tr>
+          <tr><td>YF-S201 (signal)</td><td class="pin">D2 (simulated)</td></tr>
+          <tr><td>Potentiometer 1 — contrast</td><td class="pin">A0</td></tr>
+          <tr><td>Potentiometer 2 — backlight</td><td class="pin">A1</td></tr>
+          <tr><td>LCD (I2C) SDA</td><td class="pin">A4</td></tr>
+          <tr><td>LCD (I2C) SCL</td><td class="pin">A5</td></tr>
+          <tr><td>Buzzer</td><td class="pin">D8</td></tr>
+          <tr><td>Green LED</td><td class="pin">D6</td></tr>
+          <tr><td>Yellow LED</td><td class="pin">D7</td></tr>
+          <tr><td>Red LED</td><td class="pin">D5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note"><strong>Note —</strong> all grounds (GND) must be common. Use a stable 5V supply, either USB or an external source.</div>
+
+    <div class="section-head" style="margin-top:44px;"><div class="kicker">INDICATOR LEGEND</div><h2>What the lights mean</h2></div>
+    <div class="status-grid">
+      <div class="status-cell"><span class="light" style="background:var(--green); box-shadow:0 0 8px var(--green);"></span><strong>Normal</strong><p>All readings within safe range</p></div>
+      <div class="status-cell"><span class="light" style="background:var(--amber); box-shadow:0 0 8px var(--amber);"></span><strong>Warning</strong><p>Low level or moderate quality drop</p></div>
+      <div class="status-cell"><span class="light" style="background:var(--red); box-shadow:0 0 8px var(--red);"></span><strong>Critical</strong><p>Leakage or poor water quality</p></div>
+      <div class="status-cell"><span class="light" style="background:var(--paper); box-shadow:0 0 8px var(--paper);"></span><strong>Buzzer</strong><p>Sounds on any critical alert</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>AquaWatch — IoT-based smart water monitoring &amp; leakage detection system.</p>
+    <p>Arduino UNO · HC-SR04 · 16×2 I2C LCD</p>
+  </div>
+</footer>
+
+<script src="./AquaWatch — IoT Water Monitoring System_files/script.js.download"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
